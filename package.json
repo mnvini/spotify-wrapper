@@ -23,7 +23,7 @@
   },
   "nyc": {
     "lines": 80,
-    "functions": 80,
+    "functions": 0,
     "check-coverage": true,
     "reporter": ["text", "html"],
     "exclude": ["tests/**"]

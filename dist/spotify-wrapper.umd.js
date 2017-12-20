@@ -121,17 +121,17 @@ var _config = __webpack_require__(0);
 
 var _utils = __webpack_require__(1);
 
-/**global fetch */
+/*global fetch */
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  fetch(API_URL + '/albums/' + id, HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/' + id, HEADERS).then(_utils.toJSON);
 };
 
 var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
-  fetch(API_URL + '/albums/' + id + '/tracks', HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/' + id + '/tracks', HEADERS).then(_utils.toJSON);
 };
 
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  fetch(API_URL + '/albums/ids=' + ids, HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/ids=' + ids, HEADERS).then(_utils.toJSON);
 };
 
 /***/ }),
@@ -151,9 +151,7 @@ var _config = __webpack_require__(0);
 var _utils = __webpack_require__(1);
 
 var search = exports.search = function search(query, type) {
-  fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(function (data) {
-    return data.json();
-  });
+  fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
 };
 
 var searchAlbums = exports.searchAlbums = function searchAlbums(query) {

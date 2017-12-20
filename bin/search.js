@@ -10,9 +10,7 @@ var _config = require('./config');
 var _utils = require('./utils');
 
 var search = exports.search = function search(query, type) {
-  fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(function (data) {
-    return data.json();
-  });
+  fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
 };
 
 var searchAlbums = exports.searchAlbums = function searchAlbums(query) {
