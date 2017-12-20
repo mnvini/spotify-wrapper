@@ -1,8 +1,12 @@
 language: node_js
 node_js:
   - "7"
-before_script:
+cache:
+  directories:
+    "node_modules"
 
-after_script:
+before_script:
+  - npm run build:all
 
 after_success:
+  - npm run test:coverage
