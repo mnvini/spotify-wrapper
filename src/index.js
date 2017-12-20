@@ -8,5 +8,5 @@ module.exports = {
   searchPlaylist,
   getAlbum,
   getAlbums,
-  getAlbumTracks
+  getAlbumTracks,
 };
