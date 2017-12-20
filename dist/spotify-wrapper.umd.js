@@ -101,9 +101,10 @@ var HEADERS = exports.HEADERS = { headers: { Authorization: '\'Bearer ' + TOKEN_
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var toJSON = exports.toJSON = function toJSON(data) {
+var toJSON = function toJSON(data) {
   return data.json();
 };
+exports.default = toJSON;
 
 /***/ }),
 /* 2 */
@@ -121,17 +122,17 @@ var _config = __webpack_require__(0);
 
 var _utils = __webpack_require__(1);
 
-/*global fetch */
+/* global fetch */
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  fetch(_config.API_URL + '/albums/' + id, HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils.toJSON);
 };
 
 var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
-  fetch(_config.API_URL + '/albums/' + id + '/tracks', HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/' + id + '/tracks', _config.HEADERS).then(_utils.toJSON);
 };
 
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  fetch(_config.API_URL + '/albums/ids=' + ids, HEADERS).then(_utils.toJSON);
+  fetch(_config.API_URL + '/albums/ids=' + ids, _config.HEADERS).then(_utils.toJSON);
 };
 
 /***/ }),
@@ -150,6 +151,7 @@ var _config = __webpack_require__(0);
 
 var _utils = __webpack_require__(1);
 
+/* global fetch */
 var search = exports.search = function search(query, type) {
   fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
 };

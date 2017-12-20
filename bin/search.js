@@ -9,6 +9,7 @@ var _config = require('./config');
 
 var _utils = require('./utils');
 
+/* global fetch */
 var search = exports.search = function search(query, type) {
   fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
 };
