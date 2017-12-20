@@ -7,10 +7,10 @@ export default {
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'sopotifyWrapper'
+    library: 'sopotifyWrapper',
   },
   devtool: 'source-map',
   module: {
-    loaders: [{ test: /\.js$/, loader: 'babel-loader', include }]
-  }
+    loaders: [{ test: /\.js$/, loader: 'babel-loader', include }],
+  },
 };
