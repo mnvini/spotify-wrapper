@@ -16,7 +16,7 @@
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
-    "coveralls":"npm run test:coverage && nyc report --reporter-text-lcov | coveralls"
+    "coveralls": "npm run test:coverage && nyc report --reporter-text-lcov | coveralls"
   },
   "nyc": {
     "lines": 80,
@@ -65,6 +65,7 @@
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0",
     "sinon-stub-promise": "^4.0.0",
+    "spawn-wrap": "^1.4.2",
     "webpack": "^2.4.1"
   }
 }
