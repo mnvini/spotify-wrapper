@@ -81,12 +81,10 @@ describe('Search', () => {
       });
     });
 
-    it.skip('should return the JSON Data from the Promise', () => {
+    it('should return the JSON Data from the Promise', () => {
       promise.resolves({ body: 'json' });
-
-      const artists = search('Incubus', 'artist', testObject);
-
-      expect(testObject.resolveValue).to.be.eql({ body: 'json' });
+      const artists = search('Incubus', 'artist');
+      expect(artists.resolveValue).to.be.eql({ body: 'json' });
     });
   });
 
