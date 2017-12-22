@@ -7,23 +7,26 @@
 </head>
 
 <body>
-<div id="albums"></div>
+  <div id="albums"></div>
 
-<script src="../dist/spotify-wrapper.umd.js"></script>
+  <script src="../dist/spotify-wrapper.umd.js"></script>
 
-<script>
-  const albums = spotifyWrapper.searchAlbums('Incubus');
-  const albumsEl = document.getElementById('albums');
+  <script>
+    const spotify = new SpotifyWrapper({
+      token: 'BQDG48YSjt7yQCXCWw8QKHaH3NrObPAqqEL74CV7UxGc6gt50rMAUI2OnG0df3Xnpu9Jc9lhvskO1M5Vn1ShO_RoF88d5dKAgKsLS3usZmV0eB0KWe4KnPb1QPJ_8yEDnqKe7pELC7Ul'
+    })
+    const albums = spotify.search.albums('Koda');
+    const albumsEl = document.getElementById('albums');
 
-  albums.then(data => {
-    markup = data.albums.items.map(item =>
-      `<img src='${item.images[0].url}' alt='${item.name}' />`
-    ).join('');
+    albums.then(data => {
+      markup = data.albums.items.map(item =>
+        `<img src='${item.images[0].url}' alt='${item.name}' />`
+      ).join('');
 
-    albumsEl.innerHTML = markup;
-  });
+      albumsEl.innerHTML = markup;
+    });
 
-</script>
+  </script>
 
 </body>
 
