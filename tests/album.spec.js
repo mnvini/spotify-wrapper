@@ -1,7 +1,7 @@
 //getAlbum
 //getAlbumTracks
 
-import { getAlbum, getAlbumTracks, getAlbums } from '../src/album';
+import SpotifyWrapper from '../src/index';
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -13,7 +13,9 @@ global.fetch = require('node-fetch');
 describe('Album', () => {
   let stubedFetch;
   let promise;
+  let spotify;
   beforeEach(() => {
+    spotify = new SpotifyWrapper({ token: 'foo' });
     stubedFetch = sinon.stub(global, 'fetch');
     promise = stubedFetch.returnsPromise();
   });
@@ -23,22 +25,22 @@ describe('Album', () => {
   });
   describe('smoke test', () => {
     it('should have getAlbum method', () => {
-      expect(getAlbum).to.exist;
+      expect(spotify.album.getAlbum).to.exist;
     });
 
-    it('should have getAlbumTracks method', () => {
-      expect(getAlbumTracks).to.exist;
+    it('should have getTracks method', () => {
+      expect(spotify.album.getTracks).to.exist;
     });
   });
 
   describe('getAlbum', () => {
     it('should call fetch method', () => {
-      const album = getAlbum();
+      const album = spotify.album.getAlbum();
       expect(stubedFetch).to.have.calledOnce;
     });
 
     it('should call fetch with correct URL', () => {
-      const album = getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
+      const album = spotify.album.getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
       expect(stubedFetch).to.have.been.calledWith(
         'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy'
       );
@@ -46,19 +48,19 @@ describe('Album', () => {
 
     it('should return the correct data from promise', () => {
       promise.resolves({ album: 'name' });
-      const album = getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
+      const album = spotify.album.getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
       expect(album.resolveValue).to.be.eql({ album: 'name' });
     });
   });
 
   describe('getAlbums', () => {
     it('should call fetch method', () => {
-      const album = getAlbums();
+      const album = spotify.album.getAlbums();
       expect(stubedFetch).to.have.calledOnce;
     });
 
     it('should call fetch with correct URL', () => {
-      const album = getAlbums([
+      const album = spotify.album.getAlbums([
         '4aawyAB9vmqN3uQ7FjRGTy',
         '4aawyAB9vmqN3uQ7FjRGTz'
       ]);
@@ -67,14 +69,14 @@ describe('Album', () => {
       );
     });
 
-    describe('getAlbumsTracks', () => {
+    describe('getTracks', () => {
       it('should call fetch method', () => {
-        const album = getAlbumTracks();
+        const album = spotify.album.getTracks();
         expect(stubedFetch).to.have.calledOnce;
       });
 
       it('should call fetch with correct URL', () => {
-        const album = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
+        const album = spotify.album.getTracks('4aawyAB9vmqN3uQ7FjRGTy');
         expect(stubedFetch).to.have.been.calledWith(
           'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks'
         );
