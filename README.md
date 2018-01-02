@@ -1,8 +1,8 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.org/mnvini/spotify-wrapper-vini.svg?branch=master)](https://travis-ci.org/mnvini/spotify-wrapper-vini)
+[![Build Status](https://travis-ci.org/mnvini/spotify-wrapper.svg?branch=master)](https://travis-ci.org/mnvini/spotify-wrapper-vini)
 
-[![Coverage Status](https://coveralls.io/repos/github/mnvini/spotify-wrapper-vini/badge.svg?branch=master)](https://coveralls.io/github/mnvini/spotify-wrapper-vini?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mnvini/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/mnvini/spotify-wrapper-vini?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
@@ -30,16 +30,24 @@ $ npm install spotify-wrapper-vini --save
 
 ```js
 // to import a specific method
-import { method } from 'spotify-wrapper-vini';
+import SpotifyWrapper from 'spotify-wrapper';
 
-// to import everything
-import * as spotifyWrapper from 'spotify-wrapper-vini';
+const spotify = new SpotifyWrapper({
+  token: 'YOUR_TOKEN_HERE'
+});
+
+// using  method
+spotify.search.artists('Incubus');
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper-vini');
+const SpotifyWrapper = require('spotify-wrapper').default;
+
+const spotify = new SpotifyWrapper({
+  token: 'YOUR_TOKEN_HERE'
+});
 ```
 
 ### UMD in Browser
