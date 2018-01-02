@@ -1,6 +1,6 @@
 {
   "name": "spotify-wrapper-vini",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapper to work with the Spotify Web API.",
   "main": "bin/index.js",
   "scripts": {
@@ -8,41 +8,34 @@
     "clear": "rimraf bin",
     "prebuild": "./node_modules/.bin/babel --out-dir bin src",
     "build": "npm run clear && npm run prebuild",
-    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:umd":
+      "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min":
+      "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
     "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run test:coverage && npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test":
+      "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd":
+      "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
-    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
+    "coveralls":
+      "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
-  "files":[
-    "dist",
-    "lib"
-  ],
+  "files": ["dist", "lib"],
   "nyc": {
     "lines": 80,
     "functions": 80,
     "check-coverage": true,
-    "reporter": [
-      "text",
-      "html"
-    ],
-    "exclude": [
-      "tests/**"
-    ]
+    "reporter": ["text", "html"],
+    "exclude": ["tests/**"]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mnvini/js-tdd.git"
   },
-  "keywords": [
-    "js",
-    "tdd",
-    "library"
-  ],
+  "keywords": ["js", "tdd", "library"],
   "author": "Vinicius Moret <viniciusrcr@gmail.com>",
   "license": "MIT",
   "bugs": {
