@@ -1,5 +1,5 @@
 {
-  "name": "spotify-wrapper",
+  "name": "spotify-wrapper-vini",
   "version": "1.0.1",
   "description": "A wrapper to work with the Spotify Web API.",
   "main": "bin/index.js",

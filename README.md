@@ -1,8 +1,8 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.org/mnvini/spotify-wrapper.svg?branch=master)](https://travis-ci.org/mnvini/spotify-wrapper)
+[![Build Status](https://travis-ci.org/mnvini/spotify-wrapper-vini.svg?branch=master)](https://travis-ci.org/mnvini/spotify-wrapper-vini)
 
-[![Coverage Status](https://coveralls.io/repos/github/mnvini/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/mnvini/spotify-wrapper?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mnvini/spotify-wrapper-vini/badge.svg?branch=master)](https://coveralls.io/github/mnvini/spotify-wrapper-vini?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
@@ -10,9 +10,9 @@ A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-a
 
 This library relies on [Fetch API](https://fetch.spec.whatwg.org/). And this API is supported in the following browsers.
 
-![Chrome](https://cloud.githubusercontent.com/assets/398893/3528328/23bc7bc4-078e-11e4-8752-ba2809bf5cce.png) | ![Firefox](https://cloud.githubusercontent.com/assets/398893/3528329/26283ab0-078e-11e4-84d4-db2cf1009953.png) | ![Opera](https://cloud.githubusercontent.com/assets/398893/3528330/27ec9fa8-078e-11e4-95cb-709fd11dac16.png) | ![Safari](https://cloud.githubusercontent.com/assets/398893/3528331/29df8618-078e-11e4-8e3e-ed8ac738693f.png) | ![IE](https://cloud.githubusercontent.com/assets/398893/3528325/20373e76-078e-11e4-8e3a-1cb86cf506f0.png) |
---- | --- | --- | --- | --- |
-39+ ✔ | 42+ ✔ | 29+ ✔ | 10.1+ ✔ | Nope ✘ |
+| ![Chrome](https://cloud.githubusercontent.com/assets/398893/3528328/23bc7bc4-078e-11e4-8752-ba2809bf5cce.png) | ![Firefox](https://cloud.githubusercontent.com/assets/398893/3528329/26283ab0-078e-11e4-84d4-db2cf1009953.png) | ![Opera](https://cloud.githubusercontent.com/assets/398893/3528330/27ec9fa8-078e-11e4-95cb-709fd11dac16.png) | ![Safari](https://cloud.githubusercontent.com/assets/398893/3528331/29df8618-078e-11e4-8e3e-ed8ac738693f.png) | ![IE](https://cloud.githubusercontent.com/assets/398893/3528325/20373e76-078e-11e4-8e3a-1cb86cf506f0.png) |
+| ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 39+ ✔                                                                                                         | 42+ ✔                                                                                                          | 29+ ✔                                                                                                        | 10.1+ ✔                                                                                                       | Nope ✘                                                                                                    |
 
 ## Dependencies
 
@@ -21,7 +21,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install spotify-wrapper-vini --save
 ```
 
 ## How to use
@@ -30,26 +30,26 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import { method } from 'spotify-wrapper';
+import { method } from 'spotify-wrapper-vini';
 
 // to import everything
-import * as spotifyWrapper from 'spotify-wrapper';
+import * as spotifyWrapper from 'spotify-wrapper-vini';
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper');
+var spotifyWrapper = require('spotify-wrapper-vini');
 ```
 
 ### UMD in Browser
 
 ```html
 <!-- to import non-minified version -->
-<script src="spotify-wrapper.umd.js"></script>
+<script src="spotify-wrapper-vini.umd.js"></script>
 
 <!-- to import minified version -->
-<script src="spotify-wrapper.umd.min.js"></script>
+<script src="spotify-wrapper-vini.umd.min.js"></script>
 ```
 
 After that the library will be available to the Global as `spotifyWrapper`. Follow an example:
@@ -68,98 +68,89 @@ const albums = spotifyWrapper.searchAlbums('Choosen Artist');
 
 **Arguments**
 
-| Argument | Type              | Options                                 |
-|----------|-------------------|-----------------------------------------|
-|`query`   |*string*           | 'Any search query'                      |
-|`type`    |*Array of strings* | ['artist', 'album', 'track', 'playlist']|
+| Argument | Type               | Options                                  |
+| -------- | ------------------ | ---------------------------------------- |
+| `query`  | _string_           | 'Any search query'                       |
+| `type`   | _Array of strings_ | ['artist', 'album', 'track', 'playlist'] |
 
 **Example**
 
 ```js
-search('Incubus', ['artist', 'album'])
-  .then(data => {
-    // do what you want with the data
-  })
+search('Incubus', ['artist', 'album']).then(data => {
+  // do what you want with the data
+});
 ```
 
 ### searchAlbums(query)
 
-> Search for informations about Albums with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *album*.
+> Search for informations about Albums with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as _album_.
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`query`   |*string* | 'Any search query'|
-
+| Argument | Type     | Options            |
+| -------- | -------- | ------------------ |
+| `query`  | _string_ | 'Any search query' |
 
 **Example**
 
 ```js
-searchAlbums('Incubus')
-  .then(data => {
-    // do what you want with the data
-  })
+searchAlbums('Incubus').then(data => {
+  // do what you want with the data
+});
 ```
 
 ### searchArtists(query)
 
-> Search for informations about Artists with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *artist*.
+> Search for informations about Artists with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as _artist_.
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`query`   |*string* | 'Any search query'|
-
+| Argument | Type     | Options            |
+| -------- | -------- | ------------------ |
+| `query`  | _string_ | 'Any search query' |
 
 **Example**
 
 ```js
-searchArtists('Incubus')
-  .then(data => {
-    // do what you want with the data
-  })
+searchArtists('Incubus').then(data => {
+  // do what you want with the data
+});
 ```
 
 ### searchTracks(query)
 
-> Search for informations about Tracks with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *track*.
+> Search for informations about Tracks with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as _track_.
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`query`   |*string* | 'Any search query'|
-
+| Argument | Type     | Options            |
+| -------- | -------- | ------------------ |
+| `query`  | _string_ | 'Any search query' |
 
 **Example**
 
 ```js
-searchTracks('Drive')
-  .then(data => {
-    // do what you want with the data
-  })
+searchTracks('Drive').then(data => {
+  // do what you want with the data
+});
 ```
 
 ### searchPlaylists(query)
 
-> Search for informations about Playlist with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as *playlist*.
+> Search for informations about Playlist with provided query. Test in [Spotify Web Console](https://developer.spotify.com/web-api/console/get-search-item/) with type defined as _playlist_.
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`query`   |*string* | 'Any search query'|
-
+| Argument | Type     | Options            |
+| -------- | -------- | ------------------ |
+| `query`  | _string_ | 'Any search query' |
 
 **Example**
 
 ```js
-searchPlaylists('Happy Day')
-  .then(data => {
-    // do what you want with the data
-  })
+searchPlaylists('Happy Day').then(data => {
+  // do what you want with the data
+});
 ```
 
 ### getAlbum(id)
@@ -168,18 +159,16 @@ searchPlaylists('Happy Day')
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`id`   |*string* | 'Specific id'|
-
+| Argument | Type     | Options       |
+| -------- | -------- | ------------- |
+| `id`     | _string_ | 'Specific id' |
 
 **Example**
 
 ```js
-getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
-  .then(data => {
-    // do what you want with the data
-  })
+getAlbum('4aawyAB9vmqN3uQ7FjRGTy').then(data => {
+  // do what you want with the data
+});
 ```
 
 ### getAlbums(ids)
@@ -188,17 +177,16 @@ getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`ids`   |*Array of strings* | ['id1', 'id2']|
+| Argument | Type               | Options        |
+| -------- | ------------------ | -------------- |
+| `ids`    | _Array of strings_ | ['id1', 'id2'] |
 
 **Example**
 
 ```js
-getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo'])
-  .then(data => {
-    // do what you want with the data
-  })
+getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo']).then(data => {
+  // do what you want with the data
+});
 ```
 
 ### getAlbumTracks(id)
@@ -207,17 +195,16 @@ getAlbum(['4aawyAB9vmqN3uQ7FjRGTy', '1A2GTWGtFfWp7KSQTwWOyo'])
 
 **Arguments**
 
-| Argument | Type    | Options           |
-|----------|---------|-------------------|
-|`id`   |*string* | 'Specific id'|
+| Argument | Type     | Options       |
+| -------- | -------- | ------------- |
+| `id`     | _string_ | 'Specific id' |
 
 **Example**
 
 ```js
-getAlbum('4aawyAB9vmqN3uQ7FjRGTy')
-  .then(data => {
-    // do what you want with the data
-  })
+getAlbum('4aawyAB9vmqN3uQ7FjRGTy').then(data => {
+  // do what you want with the data
+});
 ```
 
 ## Contributing
@@ -230,8 +217,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-
-|  [Vinicius Moret](https://github.com/mnvini/)   |
+| [Vinicius Moret](https://github.com/mnvini/) |
 
 See also the list of [contributors](https://github.com/mnvini/spotify-wrapper/contributors) who participated in this project.
 
